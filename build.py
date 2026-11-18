@@ -13,8 +13,17 @@ SITE = 'https://angsumandas.angsumi.online/'
 LANG_COLORS = {'Python': '#3572A5', 'HTML': '#e34c26', 'JavaScript': '#f1e05a', 'TypeScript': '#3178c6',
                'Jupyter Notebook': '#DA5B0B', 'CSS': '#563d7c', 'R': '#198CE7', 'Shell': '#89e051',
                'TeX': '#3D6117', 'Dockerfile': '#384d54', 'Makefile': '#427819'}
-STATUS = {'Live': 'live', 'Manuscript draft': 'draft', 'In progress': 'progress', 'Code': 'code',
-          'Early': 'early', 'Superseded': 'muted', 'Drafts': 'early'}
+def ring(done, total=5, size=18, segmented=True):
+    """Circular progress: segmented for stages, continuous for shares."""
+    r = size / 2 - 2; c = 2 * 3.14159 * r; h = size / 2
+    if not segmented:
+        return (f'<svg class="ring" width="{size}" height="{size}" aria-hidden="true"><circle class="track" cx="{h}" cy="{h}" r="{r}"/>'
+                f'<circle class="seg" cx="{h}" cy="{h}" r="{r}" stroke-dasharray="{done / total * c:.2f} {c:.2f}"/></svg>')
+    arc, gap = c / total, 2.2
+    segs = ''.join(f'<circle class="{"seg" if i < done else "track"}" cx="{h}" cy="{h}" r="{r}" stroke-dasharray="{arc - gap:.2f} {c - arc + gap:.2f}" stroke-dashoffset="{-i * arc:.2f}"/>' for i in range(total))
+    return f'<svg class="ring" width="{size}" height="{size}" aria-hidden="true">{segs}</svg>'
+
+
 
 
 def api(path, tries=6):
@@ -86,9 +95,9 @@ def build():
         if p.get('doi'): links.append(f'<a href="https://doi.org/{p["doi"]}">DOI</a>')
         cat = p['category']
         cards.setdefault(cat, []).append(f'''<article class="card {cat}" data-cat="{cat}">
-<header><svg class="ico" aria-hidden="true"><use href="#i-{cat}"/></svg><a class="repo" href="{r["html_url"]}">{escape(p["repo"])}</a><span class="pill {STATUS.get(p["status"], "code")}">{escape(p["status"])}</span></header>
+<header><svg class="ico" aria-hidden="true"><use href="#i-{cat}"/></svg><a class="repo" href="{r["html_url"]}">{escape(p["repo"])}</a><span class="stage" title="Stage {p["stage"]} of 5: {data["stages"][p["stage"] - 1]}">{ring(p["stage"])}{escape(p["status"])}</span></header>
 <h3>{escape(p["title"])}</h3><p class="plain">{escape(p["plain"])}</p>
-<dl><dt><span class="k done">✓</span>Done</dt><dd>{escape(p["done"])}</dd><dt><span class="k next">→</span>Next</dt><dd>{escape(p["next"])}</dd><dt><span class="k could">✦</span>Could become</dt><dd>{escape(p["could"])}</dd></dl>
+<ul class="triad"><li><span class="k done">✓</span><span><em>done</em>{escape(p["done"])}</span></li><li><span class="k next">→</span><span><em>next</em>{escape(p["next"])}</span></li><li><span class="k could">✦</span><span><em>could become</em>{escape(p["could"])}</span></li></ul>
 {langbar(langs) if langs else ''}<footer><span>Updated {ago(r["pushed_at"], today)}</span><nav>{" · ".join(links)}</nav></footer></article>''')
         timeline.append((r['created_at'][:10], p['title'], cat))
     grid, commits = heatmap(days)
@@ -111,7 +120,8 @@ def build():
                                         'https://www.researchgate.net/profile/Angsuman-Das-2', 'https://github.com/Angsumi', 'https://x.com/angsumi_online']}}
     html = (ROOT / 'template.html').read_text()
     for key, value in {'SCHEMA': json.dumps(person), 'HEATMAP': grid, 'COMMITS': f'{commits:,}', 'SHOWN': str(shown), 'LIVE': str(live),
-                       'RESEARCH': str(count['research']), 'BUILD': str(count['build'] + count['learning']), 'LANGCOUNT': str(len(lang_repos)),
+                       'RESEARCH': str(count['research']), 'R_RING': ring(count['research'], shown, 36, False), 'L_RING': ring(live, shown, 36, False),
+                       'STAGES': ' → '.join(f'{ring(i + 1, 5, 14)} {s}' for i, s in enumerate(data['stages'])), 'BUILD': str(count['build'] + count['learning']), 'LANGCOUNT': str(len(lang_repos)),
                        'GROUPS': sections, 'TIMELINE': tl, 'LANGS': langs, 'TRY': tries, 'ROADMAP': road,
                        'DATE': f'{today:%d %B %Y}', 'ISO': today.isoformat()}.items():
         html = html.replace('{{' + key + '}}', value)
