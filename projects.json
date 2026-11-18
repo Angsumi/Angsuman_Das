@@ -154,17 +154,6 @@
       "stage": 5
     },
     {
-      "repo": "Life-Science-Book",
-      "category": "learning",
-      "status": "Early",
-      "title": "Life science notes",
-      "plain": "Study notes for the CSIR-NET life sciences exam, just getting started.",
-      "done": "Repository and outline set up.",
-      "next": "Publish the first chapters as web pages.",
-      "could": "An open textbook for exam preparation.",
-      "stage": 2
-    },
-    {
       "repo": "Angsumi.github.io",
       "category": "build",
       "status": "Live",
@@ -198,6 +187,17 @@
       "stage": 5
     },
     {
+      "repo": "blog",
+      "category": "build",
+      "status": "Live",
+      "stage": 5,
+      "title": "ANGSUMI blog",
+      "plain": "Plain, source-cited explanations of analysis choices in RNA-seq and metagenomics.",
+      "done": "Two in-depth articles, each opening with a short direct answer and linking primary sources.",
+      "next": "A new article every two weeks.",
+      "could": "The go-to reference researchers cite when planning an analysis."
+    },
+    {
       "repo": "Angsumi_Social_Media_Asset",
       "category": "build",
       "status": "Drafts",
@@ -207,6 +207,17 @@
       "next": "Refocus the content on research analysis.",
       "could": "A reusable brand kit.",
       "stage": 3
+    },
+    {
+      "repo": "metagenomics-toolkit",
+      "category": "build",
+      "status": "Planning",
+      "stage": 1,
+      "title": "Metagenomics toolkit",
+      "plain": "An easier way to analyse metagenomics data: one command or one window from raw reads to an annotated report.",
+      "done": "Scope and goals written; home at tools.angsumi.online.",
+      "next": "Build the first command-line version for 16S amplicon data.",
+      "could": "An open-source CLI and GUI that labs without a bioinformatician can use."
     }
   ],
   "try": [
@@ -217,7 +228,7 @@
     ],
     [
       "Bioinformatics labs",
-      "https://angsumi.online/bioinformatics/",
+      "https://learn.angsumi.online/",
       "Ten tools explained with working calculators."
     ],
     [
@@ -237,7 +248,7 @@
     ],
     [
       "Analysis blog",
-      "https://angsumi.online/blog/",
+      "https://blog.angsumi.online/",
       "Plain explanations of analysis choices."
     ]
   ],
@@ -253,9 +264,9 @@
       "AI animal benchmark rerun with current models"
     ],
     "Later": [
+      "Metagenomics toolkit: first open-source release",
       "Free bioinformatics course",
-      "Open ethnomedicine database",
-      "Open life-science textbook"
+      "Open ethnomedicine database"
     ]
   },
   "tracks": {
