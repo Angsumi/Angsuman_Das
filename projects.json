@@ -1,5 +1,5 @@
 {
-  "_note": "Curated, plain-language layer over live GitHub data. Edit freely; build.py adds languages, dates and activity. Repos not listed here are not shown. stage: 1 Started (set up), 2 Building (data or code in progress), 3 Working (results exist), 4 Shared (live report, site or archived release), 5 Published (peer-reviewed or delivered).",
+  "_note": "Curated, plain-language layer over live GitHub data. Edit freely; build.py adds languages, dates and activity. Repos not listed here are not shown. stage = number of steps completed on the track (research: Plan, Initiated, Progressing, Got result, Manuscript written, Submitted, Published; websites, tools and courses: Plan, Initiated, Progressing, Working version, Live).",
   "categories": {
     "research": {
       "label": "Research",
@@ -16,6 +16,32 @@
   },
   "projects": [
     {
+      "repo": "GPT_VISION_FOR_Animal_Classification",
+      "category": "research",
+      "status": "Published",
+      "title": "GPT Vision meets taxonomy",
+      "plain": "Can an AI vision model name animal species from photos? A peer-reviewed evaluation for biological image classification.",
+      "done": "Published in Springer’s Lecture Notes in Networks and Systems (2024), with the benchmark notebook and data.",
+      "next": "Rerun the benchmark with today’s open and commercial models.",
+      "could": "A living benchmark comparing AI models with expert identification.",
+      "stage": 7,
+      "doi": "10.1007/978-981-97-3601-0_31",
+      "pdf": "https://angsumi.online/cv/documents/publications/GPT%20Vision%20Meets%20Taxonomy.pdf"
+    },
+    {
+      "repo": "Assam_Ethnomedicine",
+      "category": "research",
+      "status": "Published",
+      "title": "Green Heritage of Assam",
+      "plain": "A meta-analysis of the traditional medicinal plants used in Assam: the seed of the Northeast-wide study.",
+      "done": "Published in the Journal of Advanced Zoology, with the cleaned dataset and analysis notebook.",
+      "next": "Extended to all seven northeastern states in the NE India synthesis.",
+      "could": "An archived dataset with its own DOI for reuse.",
+      "stage": 7,
+      "doi": "10.53555/jaz.v42i01.3838",
+      "pdf": "https://angsumi.online/cv/documents/publications/Green%20Heritage%20Of%20Assam%20A%20Comprehensive%20Metaanalysis%20Of%20Traditional.pdf"
+    },
+    {
       "repo": "hydrosink",
       "category": "research",
       "status": "Manuscript draft",
@@ -25,18 +51,7 @@
       "done": "Data processed, every pre-specified analysis run, manuscript draft v1, archived on Zenodo with a DOI.",
       "next": "Post the preprint on bioRxiv and submit to a journal.",
       "could": "A reusable pipeline that screens any gene family across public gut metagenomes.",
-      "stage": 4
-    },
-    {
-      "repo": "PhD",
-      "category": "research",
-      "status": "In progress",
-      "title": "PhD: cattle gut microbiome",
-      "plain": "How living close to people changes the gut microbes and antibiotic-resistance genes of cattle, seen through a One Health lens.",
-      "done": "Project website with the study design and framework.",
-      "next": "Add a README, sampling plan and chapter timeline to the repository.",
-      "could": "A thesis companion site with the data and code behind every chapter.",
-      "stage": 2
+      "stage": 5
     },
     {
       "repo": "NE-Ethnomedicine-Synthesis",
@@ -47,7 +62,7 @@
       "done": "Source-traced dataset, methods specification, data dictionary and a manuscript draft with figures.",
       "next": "Finish the manuscript and submit it.",
       "could": "An open, searchable database of Northeast Indian ethnomedicine, every record linked to its source.",
-      "stage": 3
+      "stage": 5
     },
     {
       "repo": "spider-morphology-ml",
@@ -102,28 +117,28 @@
       "done": "Demultiplexing, quality control, diversity and abundance tables.",
       "next": "Publish a readable online report, like the wetland project.",
       "could": "A worked example for teaching amplicon analysis.",
+      "stage": 4
+    },
+    {
+      "repo": "PhD",
+      "category": "research",
+      "status": "In progress",
+      "title": "PhD: cattle gut microbiome",
+      "plain": "How living close to people changes the gut microbes and antibiotic-resistance genes of cattle, seen through a One Health lens.",
+      "done": "Project website with the study design and framework.",
+      "next": "Add a README, sampling plan and chapter timeline to the repository.",
+      "could": "A thesis companion site with the data and code behind every chapter.",
       "stage": 3
     },
     {
-      "repo": "GPT_VISION_FOR_Animal_Classification",
+      "repo": "population_simulator",
       "category": "research",
-      "status": "Code",
-      "title": "AI that names animals",
-      "plain": "Can an AI vision model name animal species from photos? An early benchmark from 2023.",
-      "done": "Notebook that queries the model, parses its answers and plots accuracy.",
-      "next": "Rerun with today's open and commercial models and add a licence.",
-      "could": "A benchmark note comparing AI models with expert identification.",
-      "stage": 3
-    },
-    {
-      "repo": "Assam_Ethnomedicine",
-      "category": "research",
-      "status": "Superseded",
-      "title": "Assam medicinal plants",
-      "plain": "The first spreadsheet of medicinal plants used in Assam: the seed of the Northeast-wide study.",
-      "done": "Cleaned dataset and an exploration notebook.",
-      "next": "Point readers to the NE India synthesis that continues it.",
-      "could": "An archived dataset with a DOI.",
+      "status": "In progress",
+      "title": "Population dynamics",
+      "plain": "How do populations grow, crash and recover? Models from a simple formula to virtual animals competing for food.",
+      "done": "Nine levels and thirty model versions, each runnable in the browser.",
+      "next": "Formalise the models and compare them against ecological theory.",
+      "could": "A paper on emergent carrying capacity, plus a classroom kit.",
       "stage": 3
     },
     {
@@ -136,18 +151,7 @@
       "done": "Ten labs, from QIIME 2 to AlphaFold, each with working calculators.",
       "next": "Add exercises built on real public datasets.",
       "could": "A free course with self-check quizzes.",
-      "stage": 4
-    },
-    {
-      "repo": "population_simulator",
-      "category": "learning",
-      "status": "Live",
-      "title": "Population simulators",
-      "plain": "Watch a population grow, crash and recover: from a simple formula to virtual animals competing for food.",
-      "done": "Nine levels and thirty versions of increasing realism, each playable in the browser, linked from the README.",
-      "next": "Add worksheets and guiding questions for each level.",
-      "could": "A classroom kit with worksheets for ecology teachers.",
-      "stage": 4
+      "stage": 5
     },
     {
       "repo": "Life-Science-Book",
@@ -158,7 +162,7 @@
       "done": "Repository and outline set up.",
       "next": "Publish the first chapters as web pages.",
       "could": "An open textbook for exam preparation.",
-      "stage": 1
+      "stage": 2
     },
     {
       "repo": "Angsumi.github.io",
@@ -169,7 +173,7 @@
       "done": "Service pages, planning guides, blog, structured data and fast, accessible pages.",
       "next": "Case-study pages and a new article every two weeks.",
       "could": "The main way research labs find and hire ANGSUMI.",
-      "stage": 4
+      "stage": 5
     },
     {
       "repo": "cv",
@@ -180,7 +184,7 @@
       "done": "Profile page, full CV and print styles.",
       "next": "Keep publications and talks current.",
       "could": "The first link in every application.",
-      "stage": 4
+      "stage": 5
     },
     {
       "repo": "Trishul",
@@ -202,7 +206,7 @@
       "done": "Thirty carousel drafts and an editorial calendar.",
       "next": "Refocus the content on research analysis.",
       "could": "A reusable brand kit.",
-      "stage": 2
+      "stage": 3
     }
   ],
   "try": [
@@ -254,11 +258,22 @@
       "Open life-science textbook"
     ]
   },
-  "stages": [
-    "Started",
-    "Building",
-    "Working",
-    "Shared",
-    "Published"
-  ]
+  "tracks": {
+    "research": [
+      "Plan",
+      "Initiated",
+      "Progressing",
+      "Got result",
+      "Manuscript written",
+      "Submitted",
+      "Published"
+    ],
+    "build": [
+      "Plan",
+      "Initiated",
+      "Progressing",
+      "Working version",
+      "Live"
+    ]
+  }
 }

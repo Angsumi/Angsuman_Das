@@ -16,44 +16,48 @@
 <script type="application/ld+json">{{SCHEMA}}</script>
 </head>
 <body>
+{{SPRITE}}
 <main>
 
 <header class="intro wrap">
   <p class="kicker">Angsuman Das · research and code</p>
   <h1>I study microbes and biodiversity with data, and build tools that let others do the same.</h1>
-  <p class="who">PhD researcher in computational microbiome science and machine learning at Pachhunga University College, Mizoram University. Founder of <a href="https://angsumi.online/">ANGSUMI</a>, a bioinformatics analysis practice.</p>
+  <p class="who">PhD researcher in computational microbiome science and machine learning, Pachhunga University College, Mizoram University. Founder of <a href="https://angsumi.online/">ANGSUMI</a>, a bioinformatics analysis practice.</p>
+  <nav class="profiles" aria-label="Profiles">
+    <a href="https://angsumi.online/cv/"><svg class="i" aria-hidden="true"><use href="#fa-file-lines"/></svg>CV</a>
+    <a href="https://orcid.org/0000-0001-8146-7697" class="orcid"><svg class="i" aria-hidden="true"><use href="#fa-orcid"/></svg>ORCID</a>
+    <a href="https://www.researchgate.net/profile/Angsuman-Das-2" class="rg"><svg class="i" aria-hidden="true"><use href="#fa-researchgate"/></svg>ResearchGate</a>
+    <a href="https://www.linkedin.com/in/angsumi/" class="li"><svg class="i" aria-hidden="true"><use href="#fa-linkedin"/></svg>LinkedIn</a>
+    <a href="https://github.com/Angsumi"><svg class="i" aria-hidden="true"><use href="#fa-github"/></svg>GitHub</a>
+    <a href="https://x.com/angsumi_online"><svg class="i" aria-hidden="true"><use href="#fa-x-twitter"/></svg>X</a>
+  </nav>
   <nav class="goals" aria-label="On this page"><a href="#showcase"><i>01</i>Research &amp; code</a><a href="#done"><i>02</i>Done so far</a><a href="#plan"><i>03</i>Planned next</a><a href="#become"><i>04</i>What each can become</a></nav>
-  <nav class="profiles" aria-label="Profiles"><a href="https://angsumi.online/cv/">CV</a><a href="https://orcid.org/0000-0001-8146-7697">ORCID</a><a href="https://www.researchgate.net/profile/Angsuman-Das-2">ResearchGate</a><a href="https://www.linkedin.com/in/angsumi/">LinkedIn</a><a href="https://github.com/Angsumi">GitHub</a><a href="https://x.com/angsumi_online">X</a></nav>
 </header>
 
 <section class="showcase wrap" id="showcase" aria-labelledby="show-h">
   <h2 id="show-h" class="title"><i>01</i>Research &amp; code</h2>
   <div class="glance">
-  <div class="big">{{PUBLIC_RING}}<div><b>{{PUBLIC}}<small>/{{N}}</small></b><span>projects already public and usable</span></div></div>
-  <div class="strand research"><h3>Research</h3><b>{{RESEARCH}}</b><span>studies</span><ul><li>{{DRAFTS}} manuscripts in draft</li><li>{{DOIS}} archived with a DOI</li><li>raw data public at NCBI</li></ul></div>
-  <div class="strand built"><h3>Code</h3><b>{{BUILT}}</b><span>tools, courses and sites</span><ul><li>{{LIVE}} open in a browser now</li><li>10 interactive labs, 30 simulators</li><li>{{LANGS}} programming languages</li></ul></div>
-  <div class="activity"><h3>Activity</h3><b>{{COMMITS}}</b><span>commits in 12 months</span>{{CHART}}</div>
-</div>
+    <div class="big">{{READY_RING}}<div><b>{{READY}}<small>/{{N}}</small></b><span>projects with results or live</span></div></div>
+    <div class="strand research"><h3><svg class="i" aria-hidden="true"><use href="#fa-flask"/></svg>Research</h3><b>{{RESEARCH}}</b><span>studies</span><ul><li>{{PUBS}} published, peer-reviewed</li><li>{{DRAFTS}} manuscripts written</li><li>raw data public at NCBI</li></ul></div>
+    <div class="strand built"><h3><svg class="i" aria-hidden="true"><use href="#fa-code"/></svg>Code</h3><b>{{BUILT}}</b><span>tools, courses and sites</span><ul><li>{{LIVE}} projects open in a browser</li><li>10 interactive labs</li><li>{{LANGS}} programming languages</li></ul></div>
+    <div class="activity"><h3>Activity</h3><b>{{COMMITS}}</b><span>commits in 12 months</span>{{CHART}}</div>
+  </div>
 </section>
 
 <section class="board wrap" id="done" aria-labelledby="board-h">
   <h2 id="board-h" class="title"><i>02</i>Done so far</h2>
-  <p class="lead">Every project, placed by how far it has come: left is just started, right is published. Click a name for details.</p>
-  <div class="stages">{{BOARD}}</div>
-  <p class="keys"><span class="k research">Research</span><span class="k learning">Learning</span><span class="k build">Websites &amp; tools</span></p>
+  <p class="lead">Each project sits at the last step it has completed. Click a name for details.</p>
+  {{BOARD}}
 </section>
-
-
 
 <section class="plan wrap" id="plan" aria-labelledby="plan-h">
   <h2 id="plan-h" class="title"><i>03</i>Planned next</h2>
-  <p class="lead">What I am working on now, next, and later.</p>
   <div class="phases">{{ROADMAP}}</div>
 </section>
 
 <section class="projects wrap" id="become" aria-labelledby="projects-h">
   <h2 id="projects-h" class="title"><i>04</i>What each project can become</h2>
-  <p class="lead">One row per project, in plain words. Read across for one project, or down a column for everything done, next or possible.</p>
+  <p class="lead">One row per project. <span class="tick"><svg class="i" aria-hidden="true"><use href="#fa-circle-check"/></svg></span> marks each completed step.</p>
   {{GROUPS}}
 </section>
 
@@ -64,10 +68,10 @@
 </section>
 
 <section class="contact wrap">
-  <p><b>Looking for a collaborator or visiting researcher</b> in microbiome informatics or machine learning for biology? <a href="https://angsumi.online/cv/">See my academic profile →</a></p>
-  <p><b>Need data analysed for your lab?</b> <a href="https://angsumi.online/">ANGSUMI does RNA-seq, metagenomics and research data analysis →</a></p>
+  <p><b>Collaborator or visiting researcher</b> in microbiome informatics or machine learning for biology? <a href="https://angsumi.online/cv/">Academic profile →</a></p>
+  <p><b>Data to analyse for your lab?</b> <a href="https://angsumi.online/">ANGSUMI: RNA-seq, metagenomics and research data analysis →</a></p>
 </section>
 </main>
-<footer class="wrap foot">Updated automatically from GitHub every week · last built <time datetime="{{ISO}}">{{DATE}}</time> · <a href="https://github.com/Angsumi/Angsuman_Das">source</a></footer>
+<footer class="wrap foot">Updated from GitHub every week · built <time datetime="{{ISO}}">{{DATE}}</time> · <a href="https://github.com/Angsumi/Angsuman_Das">source</a> · icons: <a href="https://fontawesome.com/license/free">Font Awesome Free</a> (CC BY 4.0)</footer>
 </body>
 </html>
