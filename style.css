@@ -171,3 +171,18 @@ h1{font:400 clamp(34px,5.6vw,72px)/1.02 var(--serif);max-width:1020px;letter-spa
   .lbl{display:block;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c);margin-bottom:2px}
 }
 @media (max-width:520px){.glance{grid-template-columns:1fr}.glance>div{border-left:0;padding-left:0}.goals a{font-size:16px}}
+
+/* Footer button + repositories page */
+.footbtn{display:inline-flex;align-items:center;gap:8px;min-height:40px;margin-bottom:16px;padding:8px 16px;border:1px solid var(--accent);border-radius:999px;
+  font:500 13px/1 var(--sans);color:var(--accent);background:none;transition:transform .15s var(--ease),background-color .15s var(--ease),color .15s var(--ease)}
+.footbtn:hover{background:var(--accent);color:var(--paper);transform:translateY(-1px)}
+.footbtn:active{transform:scale(.98)}
+.kicker a{color:var(--soft);background-size:0 1px;background-position:100% 100%}
+.kicker a:hover{color:var(--ink);background-size:100% 1px;background-position:0 100%}
+.repos{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid var(--line)}
+.repo{display:grid;grid-template-columns:minmax(0,1.6fr) 1fr 1.2fr;gap:8px 28px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.repo h3{font:400 20px/1.25 var(--serif);letter-spacing:-.01em;overflow-wrap:anywhere}
+.repo div>p{margin:4px 0 0;font-size:13.5px;color:var(--soft)}
+.repo .meta{margin:0}.repo .links{margin:0}
+.repo .links .open{color:var(--accent)}
+@media (max-width:900px){.repo{grid-template-columns:1fr}}

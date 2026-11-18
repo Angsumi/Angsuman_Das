@@ -78,13 +78,13 @@
     {
       "repo": "Sahil_Metagenome",
       "category": "research",
-      "status": "Live",
+      "status": "Submitted",
       "title": "Wetland eDNA",
       "plain": "Reading which tiny plants and animals live in two Assam wetlands from the DNA they leave in the water.",
-      "done": "18S and COI markers processed end to end; raw reads public at NCBI (PRJNA1551452); step-by-step report online.",
-      "next": "Write up the comparison between the two wetlands.",
-      "could": "A short, citable data paper.",
-      "stage": 4
+      "done": "18S and COI markers processed end to end; raw reads public at NCBI (PRJNA1551452); step-by-step report online; paper written and submitted.",
+      "next": "Answer the reviewers and revise the paper.",
+      "could": "A peer-reviewed, citable paper on the two wetlands.",
+      "stage": 6
     },
     {
       "repo": "Shruti_RNAseq_DeNovo",

@@ -113,6 +113,7 @@ def build():
     research = sum(1 for p in projects if p['category'] == 'research')
     pubs = sum(1 for p in projects if p['status'] == 'Published')
     drafts = sum(1 for p in projects if p['status'] == 'Manuscript draft')
+    submitted = sum(1 for p in projects if p['status'] == 'Submitted')
     chart, commits = months_chart(days, today)
 
     def board_html(t, label):
@@ -130,7 +131,7 @@ def build():
                              'sameAs': ['https://orcid.org/0000-0001-8146-7697', 'https://www.linkedin.com/in/angsumi/',
                                         'https://www.researchgate.net/profile/Angsuman-Das-2', 'https://github.com/Angsumi', 'https://x.com/angsumi_online']}}
     values = {'SPRITE': sprite(), 'SCHEMA': json.dumps(person), 'N': str(n), 'READY': str(ready), 'READY_RING': ring(ready, n),
-              'LIVE': str(live), 'RESEARCH': str(research), 'BUILT': str(n - research), 'PUBS': str(pubs), 'DRAFTS': str(drafts),
+              'LIVE': str(live), 'RESEARCH': str(research), 'BUILT': str(n - research), 'PUBS': str(pubs), 'DRAFTS': str(drafts), 'SUBMITTED': str(submitted),
               'LANGS': str(len(langs_used)), 'COMMITS': f'{commits:,}', 'CHART': chart,
               'BOARD': board_html('research', 'Research') + board_html('build', 'Websites, tools &amp; courses'),
               'GROUPS': groups, 'TRY': tries, 'ROADMAP': road, 'DATE': f'{today:%d %B %Y}', 'ISO': today.isoformat()}
@@ -138,7 +139,32 @@ def build():
     for key, value in values.items():
         html = html.replace('{{' + key + '}}', value)
     (ROOT / 'index.html').write_text(html)
+    build_repos(repos, today)
     print(f'index.html: {n} projects, {pubs} published, {ready} with results or live, {commits} commits in 12 months')
+
+
+HIDDEN = {'document-library'}  # kept public by owner choice, but out of navigation
+
+
+def build_repos(repos, today):
+    """repos.html: every public repository, its GitHub Pages site (if any) and its code."""
+    live, code = [], []
+    for name, r in sorted(repos.items(), key=lambda kv: kv[0].lower()):
+        if name in HIDDEN or r.get('fork'):
+            continue
+        site = r.get('homepage') or ''
+        if r.get('has_pages') and not site:
+            site = (api(f'repos/{OWNER}/{name}/pages') or {}).get('html_url', '').replace('http://', 'https://')
+        links = (f'<a class="open" href="{escape(site)}">{icon("arrow-up-right-from-square")}{escape(site.split("//")[-1].rstrip("/"))}</a>' if site else '') + \
+                f'<a href="{r["html_url"]}">{icon("github")}Code</a>'
+        row = (f'<li class="repo"><div><h3>{escape(name)}</h3><p>{escape(r.get("description") or "")}</p></div>'
+               f'<p class="meta">{escape(r.get("language") or "—")} · updated {ago(r["pushed_at"], today)}</p><p class="links">{links}</p></li>')
+        (live if site else code).append(row)
+    html = (ROOT / 'repos.template.html').read_text()
+    for key, value in {'SPRITE': sprite(), 'LIVE': ''.join(live), 'CODE': ''.join(code), 'NLIVE': str(len(live)),
+                       'NCODE': str(len(code)), 'N': str(len(live) + len(code)), 'DATE': f'{today:%d %B %Y}', 'ISO': today.isoformat()}.items():
+        html = html.replace('{{' + key + '}}', value)
+    (ROOT / 'repos.html').write_text(html)
 
 
 if __name__ == '__main__':
