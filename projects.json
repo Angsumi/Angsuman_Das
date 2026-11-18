@@ -144,8 +144,8 @@
       "status": "Live",
       "title": "Population simulators",
       "plain": "Watch a population grow, crash and recover: from a simple formula to virtual animals competing for food.",
-      "done": "Nine levels and thirty versions of increasing realism, each playable in the browser.",
-      "next": "Fix the README links so every level opens from GitHub.",
+      "done": "Nine levels and thirty versions of increasing realism, each playable in the browser, linked from the README.",
+      "next": "Add worksheets and guiding questions for each level.",
       "could": "A classroom kit with worksheets for ecology teachers.",
       "stage": 4
     },
